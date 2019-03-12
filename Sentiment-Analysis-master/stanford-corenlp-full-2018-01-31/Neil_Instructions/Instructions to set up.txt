@@ -1,0 +1,6 @@
+for file in `find /path/to/corenlp/ -name "*.jar"`; do export
+CLASSPATH="$CLASSPATH:`realpath $file`"; done
+
+
+echo "the quick brown fox jumped over the lazy dog" > input.txt
+java -mx3g edu.stanford.nlp.pipeline.StanfordCoreNLP -outputFormat json -file input.txt
